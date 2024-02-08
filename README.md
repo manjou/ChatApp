@@ -1,6 +1,3 @@
-Certainly! Below is the markup for the README file in Markdown format:
-
-````markdown
 # React Native Chat App
 
 This is a mobile chat application built using React Native, Expo, and Google Firestore Database. The app allows users to chat with friends and family, send messages, share images, and exchange location data.
@@ -69,6 +66,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-````
-
-You can copy and paste this markup directly into your README file on GitHub. Once you commit and push the changes, GitHub will render it correctly with the desired formatting.
