@@ -10,12 +10,10 @@ This is a mobile chat application built using React Native, Expo, and Google Fir
 - [Technical Requirements](#technical-requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
-The React Native Chat App project was developed as part of Achievement 5 of a bootcamp curriculum. The goal of this project is to demonstrate proficiency in React Native development, including the integration of real-time chat functionality, image sharing, location sharing, and offline data storage.
+The React Native Chat App project was developed as part of Achievement 5 of my fullstack bootcamp curriculum. The goal of this project is to demonstrate proficiency in React Native development, including the integration of real-time chat functionality, image sharing, location sharing, and offline data storage.
 
 ## Features
 
@@ -59,10 +57,4 @@ To run this application locally, follow these steps:
 
 Once the development server is running, you can use the Expo client app to view the app on your mobile device or an emulator.
 
-## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
