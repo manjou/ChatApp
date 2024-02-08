@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground, Platform, KeyboardAvoidingView } from 'react-native';
 import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -41,6 +41,7 @@ const Start = ({ navigation }) => {
             <Text style={styles.startChatButtonText}>Start Chatting</Text>
           </TouchableOpacity>
         </View>
+        {Platform.OS === "ios"?<KeyboardAvoidingView behavior="padding" />: null}
       </ImageBackground>
     </View>
   );
