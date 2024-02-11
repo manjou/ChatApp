@@ -16,7 +16,6 @@ const Stack = createNativeStackNavigator();
 //importing Initailization for the Firebase
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { getAnalytics } from "firebase/analytics";
 
 const App = () => {
   const firebaseConfig = {
@@ -30,7 +29,6 @@ const App = () => {
   };
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 
   // Initialize Cloud Firestore and get a reference to the service
   const db = getFirestore(app);
