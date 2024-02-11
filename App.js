@@ -16,19 +16,21 @@ const Stack = createNativeStackNavigator();
 //importing Initailization for the Firebase
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getAnalytics } from "firebase/analytics";
 
 const App = () => {
   const firebaseConfig = {
-    apiKey: "AIzaSyDkd3DVIg-By9zupOJ5U1T9PBZL_UDSOM0",
-    authDomain: "shopping-list-demo-5a740.firebaseapp.com",
-    projectId: "shopping-list-demo-5a740",
-    storageBucket: "shopping-list-demo-5a740.appspot.com",
-    messagingSenderId: "550250686696",
-    appId: "1:550250686696:web:a7ea55253a87defe1c015d",
-    measurementId: "G-D6XY59CEKM"
+    apiKey: "AIzaSyDbQAiQYQtUb4XwMP_8q_CRihLSmRG2fh8",
+    authDomain: "chatapp-8fc26.firebaseapp.com",
+    projectId: "chatapp-8fc26",
+    storageBucket: "chatapp-8fc26.appspot.com",
+    messagingSenderId: "308982341384",
+    appId: "1:308982341384:web:7262920f681b888d2396bd",
+    measurementId: "G-N64X3TEVQ2"
   };
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
   // Initialize Cloud Firestore and get a reference to the service
   const db = getFirestore(app);

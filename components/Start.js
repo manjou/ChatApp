@@ -1,14 +1,25 @@
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground, Platform, KeyboardAvoidingView } from 'react-native';
 import { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { getAuth, signInAnonymously } from 'firebase/auth';
 
 const Start = ({ navigation }) => {
+  const auth = getAuth();
+
+  const signInUser = async () => {
+    signInAnonymously(auth)
+      .then(result => {
+        navigation.navigate('Chat', { userID: result.user.uid, name, backgroundColor });
+        Alert.alert("You have successfully signed in!")
+      })
+      .catch(error => {
+        Alert.alert("Unable to sign in. Please try again.")
+      })
+  }
+
   const [name, setName] = useState('');
   const [backgroundColor, setBackgroundColor] = useState('#8A95A5');
 
-  const handleSubmit = () => {
-    navigation.navigate('Chat', { name, backgroundColor });
-  }
 
   return (
     <View style={styles.container}>
@@ -36,7 +47,7 @@ const Start = ({ navigation }) => {
           </View>
           <TouchableOpacity
             style={styles.startChatButton}
-            onPress={handleSubmit}
+            onPress={signInUser}
           >
             <Text style={styles.startChatButtonText}>Start Chatting</Text>
           </TouchableOpacity>
