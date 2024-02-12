@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Platform, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Platform, KeyboardAvoidingView } from 'react-native';
 import { GiftedChat, Bubble } from 'react-native-gifted-chat';
-import { query, orderBy, collection, getDocs, addDoc, onSnapshot, getFirestore } from 'firebase/firestore';
+import { query, orderBy, collection, addDoc, onSnapshot } from 'firebase/firestore';
 
-const db = getFirestore();
 
-const Chat = ({ route, navigation }) => {
+const Chat = ({ route, navigation, db }) => {
   const [messages, setMessages] = useState([]);
   const { userID, name, backgroundColor } = route.params;
 
@@ -21,9 +20,11 @@ const Chat = ({ route, navigation }) => {
         newMessages.push({
           id: doc.id,
           ...doc.data(),
-          createdAt: new Date(doc.data().createdAt.toMillis())
+          createdAt: new Date(doc.data().createdAt.toMillis()),
+          user: {...doc.data().user, avatar: 'https://placeimg.com/140/140/any' },
         })
-        })
+        });
+
       setMessages(newMessages);
     });
 
@@ -44,8 +45,8 @@ const Chat = ({ route, navigation }) => {
         messages={messages}
         onSend={messages => onSend(messages)}
         user={{
-          _id: userID, 
-          name
+          id: userID,
+          name,
         }}
         renderBubble={renderBubble}
       />  
