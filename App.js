@@ -8,6 +8,7 @@ import { getFirestore, disableNetwork, enableNetwork } from 'firebase/firestore'
 import { useEffect } from 'react';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { LogBox, Alert } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 
 import Start from './components/Start';
 import Chat from './components/Chat';
