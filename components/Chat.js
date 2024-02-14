@@ -4,6 +4,8 @@ import { GiftedChat, Bubble, InputToolbar } from 'react-native-gifted-chat';
 import { query, orderBy, collection, addDoc, onSnapshot } from 'firebase/firestore';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import CustomActions from './CustomActions';
+
 
 const Chat = ({ route, navigation, db, isConnected }) => {
   const [messages, setMessages] = useState([]);
@@ -69,24 +71,9 @@ const Chat = ({ route, navigation, db, isConnected }) => {
     else return null;
   }
 
-
- return (
-  <View style={[styles.container, {backgroundColor: backgroundColor}]}>
-      <GiftedChat
-        messages={messages}
-        renderInputToolbar={(props) => renderInputToolbar(props, isConnected)}
-        onSend={messages => onSend(messages)}
-        user={{
-          _id: userID,
-          name,
-        }}
-        renderBubble={renderBubble}
-      />  
-
-{ Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null }
-  </View>
- )
-}
+  const renderCustomActions = (props) => {
+    return <CustomActions {...props} />;
+  };
 
   // changing the color of the right bubble˚
   const renderBubble = (props) => {
@@ -106,6 +93,26 @@ const Chat = ({ route, navigation, db, isConnected }) => {
       />
     )
   }
+
+ return (
+  <View style={[styles.container, {backgroundColor: backgroundColor}]}>
+      <GiftedChat
+        messages={messages}
+        renderInputToolbar={(props) => renderInputToolbar(props, isConnected)}
+        renderBubble={renderBubble}
+        renderActions={renderCustomActions}        
+        onSend={messages => onSend(messages)}
+        user={{
+          _id: userID,
+          name,
+        }}
+      />  
+      { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null }
+  </View>
+ )
+}
+
+
 
 const styles = StyleSheet.create({
  container: {
