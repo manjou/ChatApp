@@ -8,12 +8,16 @@ This is a mobile chat application built using React Native, Expo, and Google Fir
 - [Features](#features)
 - [User Stories](#user-stories)
 - [Technical Requirements](#technical-requirements)
-- [Installation](#installation)
+- [Directions for setting up the environment](#Directions for setting up the environment)
 - [Usage](#usage)
 
 ## Introduction
 
 The React Native Chat App project was developed as part of Achievement 5 of my fullstack bootcamp curriculum. The goal of this project is to demonstrate proficiency in React Native development, including the integration of real-time chat functionality, image sharing, location sharing, and offline data storage.
+
+## Screenshots / Video
+
+
 
 ## Features
 
@@ -44,14 +48,24 @@ The React Native Chat App project was developed as part of Achievement 5 of my f
 - Location data retrieval and sharing
 - Accessibility considerations applied to app design and development
 
-## Installation
+## Directions for setting up the environment
 
-To run this application locally, follow these steps:
-
-1. Clone this repository to your local machine.
-2. Navigate to the project directory.
-3. Run `npm install` to install dependencies.
-4. Follow Expo's instructions to start the development server.
+- Install <a href="https://nodejs.org/en/learn/getting-started/how-to-install-nodejs">Node JS</a> on your device
+- In the terminal: Install Expo globally: `npm install -g expo-cli`
+- Sign up for an <a href="https://expo.dev/">Expo Account </a> to be able to run the app on your device
+- Clone this repository
+- Navigate to the folder and run `npm install`
+- Use your own Firebase configuration code:
+  - Sign in at [Google Firebase](https://firebase.google.com/)
+  - **Create a Project** (uncheck **Enable Google Analytics for this project**)
+  - **Create Database** in **Firestore Database** (choose a close region from the dropdown, and **Start in production mode**)
+  - Change `allow read, write: if false;` to `allow read, write, if true;` in **Rules** tab
+  - **Register app(`</>`)** in **Project Overview**
+  - Now, follow the provided directions of adding Firebase SDK:
+    - Install firebase: `npm install firebase`
+    - Initialize firebase: Copy and paste the provided Firebase configuration and change them in the _App.js_ of the downloaded repository
+- Download Android Studio(Win) or iOS Simulator/XCode(Mac)
+- Run `expo start` in the terminal. Follow the instruction to access the app via the iOS Simulator/Android Emulator
 
 ## Usage
 
