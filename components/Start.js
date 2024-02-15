@@ -46,6 +46,7 @@ const Start = ({ navigation }) => {
         <View style={styles.innerContainer}>
           <View style={styles.inputContainer}>
             <TextInput
+              accessibilityLabel="Input for your name."
               style={styles.textInput}
               placeholder="Your Name"
               value={name}
@@ -57,23 +58,36 @@ const Start = ({ navigation }) => {
           <Text style={styles.chooseColorText}>Choose Background Color:</Text>
           <View style={styles.colorOptions}>
             <TouchableOpacity
+              accessibilityLabel="Choose black as the background color."
+              accessibilityRole="button"
               style={[styles.colorCircle, { backgroundColor: "#090C08" }]}
               onPress={() => setBackgroundColor("#090C08")}
             />
             <TouchableOpacity
+              accessibilityLabel="Choose purple as the background color."
+              accessibilityRole="button"
               style={[styles.colorCircle, { backgroundColor: "#474056" }]}
               onPress={() => setBackgroundColor("#474056")}
             />
             <TouchableOpacity
+              accessibilityLabel="Choose grey as the background color."
+              accessibilityRole="button"
               style={[styles.colorCircle, { backgroundColor: "#8A95A5" }]}
               onPress={() => setBackgroundColor("#8A95A5")}
             />
             <TouchableOpacity
+              accessibilityLabel="Choose green as the background color."
+              accessibilityRole="button"
               style={[styles.colorCircle, { backgroundColor: "#B9C6AE" }]}
               onPress={() => setBackgroundColor("#B9C6AE")}
             />
           </View>
-          <TouchableOpacity style={styles.startChatButton} onPress={signInUser}>
+          <TouchableOpacity 
+                  accessible={true}
+                  accessibilityLabel="Start chatting button."
+                  accessibilityHint="When pressed, you will be taken to the chat screen."
+                  accessibilityRole="button"
+                  style={styles.startChatButton} onPress={signInUser}>
             <Text style={styles.startChatButtonText}>Start Chatting</Text>
           </TouchableOpacity>
         </View>
