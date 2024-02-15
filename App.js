@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { LogBox, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { getStorage } from "firebase/storage";
 
 import Start from './components/Start';
 import Chat from './components/Chat';
@@ -35,6 +36,8 @@ const App = () => {
   // Initialize Cloud Firestore and get a reference to the service
   const db = getFirestore(app);
 
+  const storage = getStorage(app);
+
   const connectionStatus = useNetInfo();
 
   useEffect(() => {
@@ -48,15 +51,15 @@ const App = () => {
 
 
 
-  if (Platform.OS !== "web") {
-    try {
-      initializeAuth(app, {
-        persistence: getReactNativePersistence(ReactNativeAsyncStorage)
-      });
-    } catch (e) {
-      console.log("error", e);
-    }
-  }
+  // if (Platform.OS !== "web") {
+  //   try {
+  //     initializeAuth(app, {
+  //       persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+  //     });
+  //   } catch (e) {
+  //     console.log("error", e);
+  //   }
+  // }
 
 
 
@@ -68,7 +71,7 @@ const App = () => {
           name="Chat"
           options={({ route }) => ({ title: route.params.name })}
         >
-        {(props) => <Chat isConnected={connectionStatus.isConnected} db={db} {...props} />}
+        {(props) => <Chat isConnected={connectionStatus.isConnected} db={db} storage={storage} {...props} />}
       </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
