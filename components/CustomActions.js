@@ -10,7 +10,7 @@ const CustomActions = ({ wrapperStyle, iconTextStyle, onSend, storage, userID })
   const actionSheet = useActionSheet();
 
   const onActionPress = () => {
-    const options = ['Choose From Library', 'Take Picture', 'Send Location', 'Cancel'];
+    const options = ['Choose From Library', 'Take Picture', 'Send Location', 'Record Audio', 'Cancel'];
     const cancelButtonIndex = options.length - 1;
     actionSheet.showActionSheetWithOptions(
       {
@@ -27,6 +27,7 @@ const CustomActions = ({ wrapperStyle, iconTextStyle, onSend, storage, userID })
             return;
           case 2:
             getLocation();
+            return;
           default:
         }
       },

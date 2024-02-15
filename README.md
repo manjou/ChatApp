@@ -9,7 +9,7 @@ This is a mobile chat application built using React Native, Expo, and Google Fir
 -   [Features](#features)
 -   [User Stories](#user-stories)
 -   [Technical Requirements](#technical-requirements)
--   [Directions for setting up the environment](#Directions for setting up the environment)
+-   [Directions for Setting Up the Environment](#directions-for-setting-up-the-environment)
 -   [Usage](#usage)
 
 ## Introduction
@@ -50,7 +50,7 @@ The React Native Chat App project was developed as part of Achievement 5 of my f
 -   Location data retrieval and sharing
 -   Accessibility considerations applied to app design and development
 
-## Directions for setting up the environment
+## Directions for Setting Up the Environment
 
 -   Install <a href="https://nodejs.org/en/learn/getting-started/how-to-install-nodejs">Node JS</a> on your device
 -   In the terminal: Install Expo globally: `npm install -g expo-cli`
